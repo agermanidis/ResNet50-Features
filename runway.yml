@@ -1,0 +1,11 @@
+version: 0.1
+python: 3.6
+entrypoint: python runway_model.py
+cuda: 10 
+spec:
+    cpu: True
+    gpu: True
+build_steps:
+  - pip install runway-python keras
+  - if_cpu: pip install tensorflow
+  - if_gpu: pip install tensorflow-gpu
